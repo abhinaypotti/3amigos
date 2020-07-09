@@ -1,10 +1,17 @@
 #pragma once
 
-bool isBoardFull(int arr[9]);
+enum class Player {
+	none = '-',
+    human = 'X',
+	ai = 'O'
+	
+};
 
-int checkWin(int arr[9]);
+bool isBoardFull(Player arr[9]);
 
-bool gameOver(int arr[9]);
+int checkWin(Player arr[9]);
 
-int minimax(int arr[9], int depth, bool max);
+bool gameOver(Player arr[9]);
+
+int minimax(Player arr[9], int depth, bool max);
 
