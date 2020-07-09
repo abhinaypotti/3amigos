@@ -4,9 +4,7 @@
 using std::cout;
 using std::cin;
 
-int bestmov[2];
-
-bool isBoardFull(int arr[9]) {
+bool isBoardFull(Player arr[9]) {
 
 	for (int i = 0; i < 9; i++) {
 		if (arr[i] == Player::none)
@@ -15,7 +13,7 @@ bool isBoardFull(int arr[9]) {
 	return true;
 }
 
-int checkWin(int arr[9]) {
+int checkWin(Player arr[9]) {
 
 	if (/*player wins*/1)
 		return 1;
@@ -28,43 +26,55 @@ int checkWin(int arr[9]) {
 		return checkWin(arr) || isBoardFull(arr);
 }*/
 
-int minimax(int arr[9], int depth, Player player) {
-
+int* minimax(Player arr[9], int depth, Player player) {
+	
+	int test[2];
+	int bestmov[2];
 	int score[2];
 
-	int test = checkWin(arr);
+	test[1] = checkWin(arr);
+	test[0] = -1;
 
-	if (test == 1)
-		return test;
-	if (test == -1)
-		return test;
+	if (test[1] == 1) 
+		 return test;
+		
 
-	if (isBoardFull(arr))
-		return 0;
+	if (test[1] == -1) 
+		 return test;
 
-	if (player = Player::human)
-		bestmov[1] = +1000;
-	else
+	 if (isBoardFull(arr) == true || depth == 0) {
+		 test[1] = 0;
+		 return test;
+	 }
+
+	if (player == Player::human) {
+	bestmov[1] = +1000;
+	bestmov[0] = -1;
+	}
+	else {
 		bestmov[1] = -1000;
-
+		bestmov[0] = -1;
+	}
 	for (int i = 0; i < 9; i++) {
+		
 		if (arr[i] == Player::none) {
+			
 			arr[i] = player;
-			if (player == Player::ai) {
-				score[0] = i;
-				score[1] = minimax(arr, depth - 1, Player::human);
-			}
-			else {
+			
+			if (player == Player::ai) 
+			
+				score = minimax(arr, depth - 1, Player::human);
 
-				score[0] = i;
-				score[1] = minimax(arr, depth - 1, Player::ai);
-			}
+			else 
+				score = minimax(arr, depth - 1, Player::ai);
+
 			arr[i] = Player::none;
+			score[0] = i;
 
-			if (player == Player::ai) {
+			if (player == Player::ai) {			
 				if (score[1] > bestmov[1]) {
 					bestmov[1] = score[1];
-					bestmov[0] = bestmov[0];
+					bestmov[0] = score[0];
 				}
 			}
 			else
@@ -72,15 +82,22 @@ int minimax(int arr[9], int depth, Player player) {
 					bestmov[0] = score[0];
 					bestmov[1] - score[1];
 				}
+		
+		
 		}
 	}
 
-	return bestmov[1];
+	return bestmov;
 
 
 
 }
 
 int main() {
-	int arr[9] = { '-','-','-','-','-','-','-','-','-' };
+	Player arr[9];
+	for (int i = 0; i < 9; i++) {
+		arr[i] = Player::none;
+	}
+
+
 }
