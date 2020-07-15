@@ -21,7 +21,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[4] == player && arr[5] == player && arr[6] == player){
@@ -30,7 +30,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[7] == player && arr[8] == player && arr[9] == player){
@@ -39,7 +39,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[1] == player && arr[4] == player && arr[7] == player){
@@ -48,7 +48,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[2] == player && arr[5] == player && arr[8] == player){
@@ -57,7 +57,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[3] == player && arr[6] == player && arr[9] == player){
@@ -66,7 +66,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[1] == player && arr[5] == player && arr[9] == player){
@@ -75,7 +75,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	if (arr[3] == player && arr[5] == player && arr[7] == player){
@@ -84,7 +84,7 @@ int checkWin(Player arr[9],Player player) {
 		}
 		else
 		{
-			return 0;
+			return -1;
 		}
 	}
 	
